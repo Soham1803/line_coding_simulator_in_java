@@ -53,13 +53,13 @@ class SecondFrame extends JFrame {
             g.drawLine(0, height-50, width, height-50);
 
             g.drawLine(50, 0, 50, height);
-            g.setColor(Color.cyan);
+
 
             int signalStart = 50;
 
             int nPoints = signalString.length();
-            int[] x_array = new int[nPoints*2 + 2];
-            int[] y_array = new int[nPoints*2 + 1];
+            int[] x_array = new int[nPoints*2 + 1];
+            int[] y_array = new int[nPoints*2];
 
             int arrIndex = 0;
             x_array[0] = 50;
@@ -83,8 +83,10 @@ class SecondFrame extends JFrame {
 
                 }
                 signalStart+=50;
-                g.drawPolyline(x_array, y_array, nPoints);
             }
+
+            g.setColor(Color.cyan);
+            g.drawPolyline(x_array, y_array, nPoints*2);
 
             System.out.println(Arrays.toString(x_array));
             System.out.println(Arrays.toString(y_array));
@@ -171,7 +173,7 @@ public class Assignment_1 extends JFrame{
 
                 String input = textField.getText();
 
-                dispose();
+                //dispose();
                 SecondFrame secondFrame = new SecondFrame(input);
             }
         });
